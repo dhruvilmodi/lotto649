@@ -8,10 +8,15 @@
     font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html{
+}
+
 body{
-    background-size: cover;
     overflow: hidden;
-    background: #EEEEEE;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgb(38, 84, 10);
+    background-image: url(./images/moneyBg.svg);
 }
 
 main{
@@ -19,10 +24,17 @@ main{
     margin: 0 auto 0 auto;
 }
 
+
 img{
-    max-width: 100px;
+    max-width: 200px;
     display: flex;
     margin: 15px auto;
+}
+
+#logo{
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
 /* ------------------ quickpickContainer section ------------------ */
@@ -68,13 +80,38 @@ img{
     outline: none;
     border-radius: 10px;
     cursor: pointer;
+    filter: grayscale(10);
     font-family: 'Merienda', cursive;
     box-shadow: 0px 0px 5px 0px #999999;
 }
 
 #quickpickContainer button:hover{
     cursor: pointer;
-    box-shadow: 0px 0px 15px 3px #999999;
+    box-shadow: 0px 0px 15px 3px #1B84ED;
+    filter: none;
+    color: #1B84ED;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(0, -1px, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(0, 2px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(0, -4px, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(0, 4px, 0);
+    }
 }
 
 #radiobuttons{
@@ -222,6 +259,26 @@ td{
 
 /* tablet view */
 @media (max-width:801px){
+
+    #quickpickContainer button{
+        width: 150px;
+        padding: 10px;
+        display: block;
+        font-size: 16px;
+        margin: 15px auto;
+        background: #FFF;
+        color: #000;
+        transition: 0.25s ease-in-out;
+        letter-spacing: 2px;
+        text-align: center;
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        filter: none;
+        font-family: 'Merienda', cursive;
+        box-shadow: 0px 0px 5px 0px #999999;
+    }
+
     /* checkboxes */
 
     .checkbox-grid li {
@@ -286,6 +343,26 @@ td{
 
 /* ipad pro view */
 @media (max-width:1030px){
+    
+    #quickpickContainer button{
+        width: 150px;
+        padding: 10px;
+        display: block;
+        font-size: 16px;
+        margin: 15px auto;
+        background: #FFF;
+        color: #000;
+        transition: 0.25s ease-in-out;
+        letter-spacing: 2px;
+        text-align: center;
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        filter: none;
+        font-family: 'Merienda', cursive;
+        box-shadow: 0px 0px 5px 0px #999999;
+    }
+    
     /* checkboxes */
 
     .checkbox-grid li {
