@@ -365,6 +365,7 @@ window.onload = function(){
                 resultContainer.innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results + "<br>" + replay;
                 
                 let replayButton = document.querySelector("#replay");
+
                 replayButton.addEventListener("click", function () {
                     // window.location.reload();
                     gsap.to(resultContainer, 0.3, {opacity:0,scale:0, ease:"back.in(1.9)"});
