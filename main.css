@@ -1,0 +1,158 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+body{
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+#main{
+    width: 1200px;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+img{
+    width: 200px;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+#box1{
+    width: 30%;
+    height: auto;
+    display: block;
+    float: left;
+    text-align: justify;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 10px 0px #000000;
+    z-index: 1000;
+    border-radius: 20px;
+    transition: 0.25s all;
+}
+
+h3{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    text-align: justify;
+}
+
+h4{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+#radiobuttons{
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#checkboxes{
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type = checkbox]{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+}
+input[type = radio]{
+    outline: none;
+}
+
+#checkboxes label{
+    margin: 0;
+    
+}
+
+#box1 button{
+    width: 150px;
+    padding: 10px;
+    display: block;
+    font-size: 16px;
+    margin: 20px auto 20px auto;
+    background: #FFF;
+    color: #000;
+    border-color: #1B84ED;
+    transition: 0.25s all;
+    letter-spacing: 3px;
+    text-align: center;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+#box1 button:hover{
+    background: #1B84ED;
+    border-color: #1B84ED;
+    color: #FFF;
+    box-shadow: inset 0px 0px 10px 0px #000000;
+}
+
+#box2{
+    width: 50%;;
+    height: 430px;
+    display: none;
+    padding: 50px;
+    margin: 0 auto 0 auto;
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 10px 0px #000000;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+#box2 label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    display: inline-block;
+    text-align: center;
+}
+
+table{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    display: absolute;
+    margin: 0 auto 0 auto;
+    border-spacing: 20px;
+}
+
+tr{
+    margin: 30px;
+    border: 1px solid black;
+
+}
+
+td{
+    width: 80px;
+    height: 80px;
+    background: #FFFF99;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+#box2 span{
+    display: relative;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.selected{
+    background: green;
+    color: red;
+}
