@@ -16,6 +16,12 @@ window.onload = function(){
 
     /* ============================================================ Variable declaration ============================================================ */
 
+    // quickpick container
+    let quickpickContainer = document.querySelector("#quickpickContainer");
+
+    // result container
+    let resultContainer = document.querySelector("#resultContainer");
+
     // lotto button variable
     let playLotto = document.querySelector('#playLotto');
 
@@ -51,6 +57,9 @@ window.onload = function(){
 
     // variable to display user selected numbers label
     let displaySelectedLabel = "<lable>Your selected numbers: </lable><br>";
+
+    gsap.to(quickpickContainer, 0, {yPercent:-160});
+    gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, delay:1, ease:"back.out(1.9)"});
 
     /* ============================================================ global functions ============================================================ */
 
@@ -203,7 +212,7 @@ window.onload = function(){
     // radio button YES click event function
     yesRadio.addEventListener('click',function(){
         // hides result box
-        document.querySelector('#box2').style.display = "none";
+        resultContainer.style.display = "none";
         // hides  checkboxes
         document.querySelector('#checkboxes').style.display = "none";
     });
@@ -211,19 +220,23 @@ window.onload = function(){
     // radio button NO click event function
     noRadio.addEventListener('click',function(){
         // hides result box
-        document.querySelector('#box2').style.display = "none";
+        resultContainer.style.display = "none";
         // display checkboxes
-        document.querySelector('#checkboxes').style.display = "flex";
+        document.querySelector('#checkboxes').style.display = "block";
     });
 
     // button click event
-    playLotto.addEventListener('click', run, false);
+    playLotto.addEventListener('click', function () {
+        gsap.to(quickpickContainer, 1.5, {opacity:0,yPercent:-160, ease:"elastic.in(1, 0.3)"});
+        run();
+    });
 
     // run function contains all code functionality
     function run(){
 
+        gsap.fromTo(resultContainer, 1,{display:"none",opacity:0,scale:0}, {display:"flex",opacity:1,scale:1, ease:"back.in(1.9)", delay:1});
         // display result box
-        document.querySelector('#box2').style.display = "block";
+        // resultContainer.style.display = "flex";
 
         /* ============================================================ get date ============================================================ */
 
@@ -345,7 +358,7 @@ window.onload = function(){
                 let selectedTable = createNumberSelectedtable(tableHTML ,NUMROWS,  NUMCOLS, numbersSelected);
 
                 // to display final output into results fox
-                document.querySelector('#box2').innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results;
+                resultContainer.innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results;
             } 
 
         }
@@ -370,10 +383,21 @@ window.onload = function(){
             
             // variable for creating random table #2
             let randomTable2 = createRandomtable2(tableHTML ,NUMROWS,  NUMCOLS, columnsArray2);
-            
+
+            // replay button
+            let replay = '<img id="replay" src="./images/replay.svg" alt="reply">';
+
             // to display final output into results fox
-            document.querySelector('#box2').innerHTML = displayDate + randomTable1 + displayQuickPickSelectedLabel + randomTable2 + "<br>" + results;
+            resultContainer.innerHTML = displayDate + randomTable1 + displayQuickPickSelectedLabel + randomTable2 + "<br>" + results + "<br>" + replay;
             
+            // replay button event
+            let replayButton = document.querySelector("#replay");
+            replayButton.addEventListener("click", function () {
+                // window.location.reload();
+                gsap.to(resultContainer, 0.3, {opacity:0,scale:0, ease:"back.in(1.9)"});
+                gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, delay:1, ease:"back.out(1.9)"});
+                // gsap.to(quickpickContainer, 0.3, {opacity:1,scale:1, delay:1, ease:"back.out(1.9)"});
+            })
         }
 
         else{
@@ -381,5 +405,6 @@ window.onload = function(){
             // not of use but thinking about safe side if someone does changes with html file
             alert("Please select one choice");
         }
+
     }
 }/**END onload function */
