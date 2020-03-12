@@ -3,7 +3,7 @@ M O D I - 100727467
 
 Purpose:
 
-6 4 9 - Lottery
+Lotto 649 Lotery game!
 
 It allows user to select their 6 numbers manually of allows computer to autopick. 6 numbers from drawn and 6 numbers from user selected/autopick.
 This game also shows the drawn date, day and time as well as number of matches.
@@ -17,13 +17,13 @@ window.onload = function(){
     /* ============================================================ Variable declaration ============================================================ */
 
     // lotto button variable
-    let playLotto = document.getElementById('playLotto');
+    let playLotto = document.querySelector('#playLotto');
 
     // radio button YES variable
-    let yesRadio = document.getElementById('radioYes');
+    let yesRadio = document.querySelector('#radioYes');
 
     // radio button NO variable
-    let noRadio = document.getElementById('radioNo');
+    let noRadio = document.querySelector('#radioNo');
 
     // variable for all checkboxes
     let checkBoxes = document.getElementsByName('checkboxes');
@@ -203,17 +203,17 @@ window.onload = function(){
     // radio button YES click event function
     yesRadio.addEventListener('click',function(){
         // hides result box
-        document.getElementById('box2').style.display = "none";
+        document.querySelector('#box2').style.display = "none";
         // hides  checkboxes
-        document.getElementById('checkboxes').style.display = "none";
+        document.querySelector('#checkboxes').style.display = "none";
     });
 
     // radio button NO click event function
     noRadio.addEventListener('click',function(){
         // hides result box
-        document.getElementById('box2').style.display = "none";
+        document.querySelector('#box2').style.display = "none";
         // display checkboxes
-        document.getElementById('checkboxes').style.display = "flex";
+        document.querySelector('#checkboxes').style.display = "flex";
     });
 
     // button click event
@@ -223,7 +223,7 @@ window.onload = function(){
     function run(){
 
         // display result box
-        document.getElementById('box2').style.display = "block";
+        document.querySelector('#box2').style.display = "block";
 
         /* ============================================================ get date ============================================================ */
 
@@ -345,7 +345,7 @@ window.onload = function(){
                 let selectedTable = createNumberSelectedtable(tableHTML ,NUMROWS,  NUMCOLS, numbersSelected);
 
                 // to display final output into results fox
-                document.getElementById('box2').innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results;
+                document.querySelector('#box2').innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results;
             } 
 
         }
@@ -372,7 +372,7 @@ window.onload = function(){
             let randomTable2 = createRandomtable2(tableHTML ,NUMROWS,  NUMCOLS, columnsArray2);
             
             // to display final output into results fox
-            document.getElementById('box2').innerHTML = displayDate + randomTable1 + displayQuickPickSelectedLabel + randomTable2 + "<br>" + results;
+            document.querySelector('#box2').innerHTML = displayDate + randomTable1 + displayQuickPickSelectedLabel + randomTable2 + "<br>" + results;
             
         }
 
