@@ -13,7 +13,8 @@ html{
 
 body{
     overflow: hidden;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-attachment: fixed;
     background-color: rgb(38, 84, 10);
     background-image: url(./images/moneyBg.svg);
@@ -26,7 +27,7 @@ main{
 
 
 img{
-    max-width: 200px;
+    max-width: 150px;
     display: flex;
     margin: 15px auto;
 }
