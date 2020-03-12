@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+*,h1,h2,h3,h4,h5,h6,p,a,textarea,input,button,section,article,header,footer, table, label,ul,li, span{
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body{
     background-size: cover;
     overflow: hidden;
@@ -69,9 +73,7 @@ img{
 }
 
 #quickpickContainer button:hover{
-    background: #1B84ED;
-    border-color: #1B84ED;
-    color: #FFF;
+    cursor: pointer;
     box-shadow: 0px 0px 15px 3px #999999;
 }
 
@@ -145,6 +147,11 @@ input[type = radio]{
 
 #checkboxes label{
     margin: auto 5px;
+}
+
+#yes{
+    height: 40px;
+    margin: 0 auto;
 }
 
 /* ------------------ results ------------------ */
@@ -251,16 +258,13 @@ td{
         letter-spacing: 2px;
         text-align: center;
         outline: none;
-        border-radius: 40px;
+        border-radius: 10px;
         cursor: pointer;
         font-family: 'Merienda', cursive;
         box-shadow: 0px 0px 5px 0px #999999;
     }
     
     #quickpickContainer button:hover{
-        background: #1B84ED;
-        border-color: #1B84ED;
-        color: #FFF;
         box-shadow: 0px 0px 15px 3px #999999;
     }
 }

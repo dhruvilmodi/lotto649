@@ -61,6 +61,7 @@ window.onload = function(){
     gsap.to(quickpickContainer, 0, {yPercent:-160});
     gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, delay:1, ease:"back.out(1.9)"});
 
+
     /* ============================================================ global functions ============================================================ */
 
     // remove duplicates from an array
@@ -214,6 +215,7 @@ window.onload = function(){
         // hides result box
         resultContainer.style.display = "none";
         // hides  checkboxes
+        gsap.to(quickpickContainer, 0.3, {yPercent:60, ease:"back"});
         document.querySelector('#checkboxes').style.display = "none";
     });
 
@@ -223,6 +225,7 @@ window.onload = function(){
         resultContainer.style.display = "none";
         // display checkboxes
         document.querySelector('#checkboxes').style.display = "block";
+        gsap.to(quickpickContainer, 0.3, {yPercent:10, ease:"back"});
     });
 
     // button click event
@@ -235,8 +238,6 @@ window.onload = function(){
     function run(){
 
         gsap.fromTo(resultContainer, 1,{display:"none",opacity:0,scale:0}, {display:"flex",opacity:1,scale:1, ease:"back.in(1.9)", delay:1});
-        // display result box
-        // resultContainer.style.display = "flex";
 
         /* ============================================================ get date ============================================================ */
 
@@ -327,6 +328,9 @@ window.onload = function(){
         numbersSelected.sort(function(a, b){
             return a-b;
         });
+
+        let replay = '<img id="replay" src="./images/replay.svg" alt="reply">';
+        // replay button event
         
         // if statment for radio button NO
         if(noRadio.checked){
@@ -358,7 +362,14 @@ window.onload = function(){
                 let selectedTable = createNumberSelectedtable(tableHTML ,NUMROWS,  NUMCOLS, numbersSelected);
 
                 // to display final output into results fox
-                resultContainer.innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results;
+                resultContainer.innerHTML = displayDate + randomTable1 + displaySelectedLabel + selectedTable + results + "<br>" + replay;
+                
+                let replayButton = document.querySelector("#replay");
+                replayButton.addEventListener("click", function () {
+                    // window.location.reload();
+                    gsap.to(resultContainer, 0.3, {opacity:0,scale:0, ease:"back.in(1.9)"});
+                    gsap.to(quickpickContainer, 1, {yPercent:0, opacity:1, delay:1, ease:"back.out(1.9)"});
+                })
             } 
 
         }
@@ -384,8 +395,6 @@ window.onload = function(){
             // variable for creating random table #2
             let randomTable2 = createRandomtable2(tableHTML ,NUMROWS,  NUMCOLS, columnsArray2);
 
-            // replay button
-            let replay = '<img id="replay" src="./images/replay.svg" alt="reply">';
 
             // to display final output into results fox
             resultContainer.innerHTML = displayDate + randomTable1 + displayQuickPickSelectedLabel + randomTable2 + "<br>" + results + "<br>" + replay;
