@@ -192,7 +192,7 @@ window.onload = function(){
         for(let i = 0; i < checkBoxes.length; i++){
             let checkbox = checkBoxes[i];
             if(checkbox.checked){
-                numbersSelected.push(parseFloat(checkbox.value));
+                numbersSelected.push(checkbox.value);
             }
         }
         return numbersSelected;
