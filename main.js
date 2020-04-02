@@ -59,7 +59,7 @@ window.onload = function(){
     let displaySelectedLabel = "<lable>Your selected numbers: </lable><br>";
 
     gsap.to(quickpickContainer, 0, {yPercent:-160});
-    gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, delay:1, ease:"back.out(1.9)"});
+    gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, ease:"back.out(1.9)"});
 
 
     /* ============================================================ global functions ============================================================ */
@@ -230,14 +230,14 @@ window.onload = function(){
 
     // button click event
     playLotto.addEventListener('click', function () {
-        gsap.to(quickpickContainer, 1.5, {opacity:0,yPercent:-160, ease:"elastic.in(1, 0.3)"});
+        gsap.to(quickpickContainer, 0.5, {opacity:0,yPercent:-160});
         run();
     });
 
     // run function contains all code functionality
     function run(){
 
-        gsap.fromTo(resultContainer, 1,{display:"none",opacity:0,scale:0}, {display:"flex",opacity:1,scale:1, ease:"back.in(1.9)", delay:1});
+        gsap.fromTo(resultContainer, 1,{display:"none",opacity:0,scale:0}, {display:"flex",opacity:1,scale:1});
 
         /* ============================================================ get date ============================================================ */
 
@@ -369,7 +369,7 @@ window.onload = function(){
                 replayButton.addEventListener("click", function () {
                     // window.location.reload();
                     gsap.to(resultContainer, 0.3, {opacity:0,scale:0, ease:"back.in(1.9)"});
-                    gsap.to(quickpickContainer, 1, {yPercent:0, opacity:1, delay:1, ease:"back.out(1.9)"});
+                    gsap.to(quickpickContainer, 1, {yPercent:0, opacity:1, ease:"back.out(1.9)"});
                 })
             } 
 
@@ -405,7 +405,7 @@ window.onload = function(){
             replayButton.addEventListener("click", function () {
                 // window.location.reload();
                 gsap.to(resultContainer, 0.3, {opacity:0,scale:0, ease:"back.in(1.9)"});
-                gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, delay:1, ease:"back.out(1.9)"});
+                gsap.to(quickpickContainer, 1, {yPercent:60, opacity:1, ease:"back.out(1.9)"});
                 // gsap.to(quickpickContainer, 0.3, {opacity:1,scale:1, delay:1, ease:"back.out(1.9)"});
             })
         }
